@@ -1,0 +1,142 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+    background-color: #080511;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cinzel', Georgia, serif;
+  }
+
+  .font-display {
+    font-family: 'Cinzel Decorative', 'Cinzel', serif;
+  }
+}
+
+/* Perspective helpers for subtle 3D board tilt */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-x-\[12deg\] {
+  transform: rotateX(12deg);
+}
+
+/* Custom scrollbar for move history */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(18, 10, 28, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.35);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.2;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.7;
+  }
+  100% {
+    transform: translateY(0px) rotate(360deg);
+    opacity: 0.2;
+  }
+}
+
+.animate-float {
+  animation: floatParticle 8s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes floatBob {
+  0%, 100% {
+    transform: translateY(-14px) scale(1.15);
+  }
+  50% {
+    transform: translateY(-20px) scale(1.18);
+  }
+}
+
+.animate-floatBob {
+  animation: floatBob 2.2s ease-in-out infinite;
+}
+
+@keyframes screenRumble {
+  0% { transform: translate3d(0, 0, 0); }
+  20% { transform: translate3d(-2px, 1.5px, 0); }
+  40% { transform: translate3d(2px, -1.5px, 0); }
+  60% { transform: translate3d(-1.5px, -1px, 0); }
+  80% { transform: translate3d(1px, 1px, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+
+.animate-rumble {
+  animation: screenRumble 0.22s ease-in-out;
+}
+
+@keyframes floatEmojiBurst {
+  0% {
+    transform: translateY(0) scale(0.6) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    transform: translateY(-40px) scale(1.4) rotate(-5deg);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-260px) scale(1.15) rotate(6deg);
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-360px) scale(0.7) rotate(12deg);
+    opacity: 0;
+  }
+}
+
+.animate-emojiBurst {
+  animation: floatEmojiBurst 2.4s cubic-bezier(0.18, 0.89, 0.32, 1.1) forwards;
+}
+
+@keyframes gemShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(250%);
+  }
+}
+
+.animate-gemShimmer {
+  animation: gemShimmer 2.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
